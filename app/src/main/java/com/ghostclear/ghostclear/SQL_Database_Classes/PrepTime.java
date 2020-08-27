@@ -1,4 +1,4 @@
-package com.ghostclear.ghostclear;
+package com.ghostclear.ghostclear.SQL_Database_Classes;
 
 public class PrepTime {
     int minutes, seconds;

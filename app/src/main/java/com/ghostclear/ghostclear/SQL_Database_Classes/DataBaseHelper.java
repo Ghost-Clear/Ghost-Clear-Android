@@ -1,7 +1,8 @@
-package com.ghostclear.ghostclear;
+package com.ghostclear.ghostclear.SQL_Database_Classes;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
@@ -132,5 +133,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         long databaseDidAppendValues = db.insert("prepTime", null, cv);
         System.out.println(databaseDidAppendValues >= 0);
         return databaseDidAppendValues >= 0;
+    }
+    public boolean isFirstLogin(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, "login");
+        return count == 0;
     }
 }
